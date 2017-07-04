@@ -25,22 +25,22 @@ router.get('/savedSpas', (req, res) => {
     res.render('/spa/spa');
 })
 
-// authenticate process
+// signup process + user creation
 router.post(
     '/',
     passport.authenticate(
         'local-signup', {
             failureRedirect: '/user/new',
-            successRedirect: '/spa/spa',
+            successRedirect: '/spa/',
         }
     )
 );
 
-// login process
+// login process, authentication
 router.post('/login', passport.authenticate(
     'local-login', {
         failureRedirect: '/user/login', 
-        successRedirect: '/spa/'
+        successRedirect: '/spa'
     }
 ));
 

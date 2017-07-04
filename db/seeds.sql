@@ -8,7 +8,7 @@ CREATE TABLE users (
 );
 
 CREATE TABLE spa (
+	id SERIAL PRIMARY KEY,
 	name VARCHAR NOT NULL,
-	address VARCHAR,  
-	id BIGSERIAL PRIMARY KEY
+	address VARCHAR NOT NULL 
 );

@@ -12,18 +12,17 @@
 <body>
   <div class="container">
     <nav>
-      <a href="/spa/favorites">Saved Spas</a>
       <a href="/user/logout">Log Out</a>
     </nav>
-      <h2>Search Spas</h2>
+      <h2>Favorite Spas</h2>
       <div class ="results">
-      <form>
-        <label>Lat:</label>
-        <input type="text" id="lat-input" placeholder="Latitude" />
-        <label>Long:</label>
-        <input type="text" id="long-input" placeholder="Longitude" />
-        <button type="submit" id="search">Submit</button>
-      </form>
-    </div>
+      {{#favoriteSpas}}
+        <div class="individual-container">
+          <h3>{{name}}</h3>
+          <p>{{address}}</p>
+          <button class="deleteBtn" id="{{id}}">DELETE</button>
+        </div>
+      {{/favoriteSpas}}
+      </div>
 </body>
 </html>

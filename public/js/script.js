@@ -50,6 +50,7 @@ const renderSpas = (spas) => {
         src: image,
         class: 'show-image'
       }).appendTo(container);
+      $('<br/>').appendTo(container);
       let button = $('<button>Save</button>')
       button.on('click', createSpa);
       button.appendTo(container); 
@@ -58,54 +59,12 @@ const renderSpas = (spas) => {
 }
 
 
-// const createSpa = (spa) => {
-// 	$.ajax ({
-// 		url: '/spas/',
-// 		type: 'POST',
-// 		data: spa,
-// 		success: res => {
-// 			window.location.replace(`/spas/${res.spa.id}`);
-// 		},
-// 		error: err => {
-// 			console.log(err);
-// 		}
-// 	})
-// }
-
-// })
-
-//  $('#edit-spa').on('submit', (e)=>{
-//     e.preventDefault();
-//     const spa = {
-//       name: $('#name-input').val(),
-//       address: $('#address-input').val(),
-//       id: $('#id-input').val()
-//     }
-//     editShow(show);
-//   })
-
-//   const editShow = (show) => {
-//     $.ajax({
-//       url: `/shows/${show.id}`,
-//       type: 'PUT',
-//       data: show,
-//       success: res => {
-//         console.log(res);
-//         window.location.replace(`/shows/${res.id}`);
-//       },
-//       error: err => {
-//         console.log(err)
-//       }
-//     })
-//   }
-
 const createSpa = (event) => {
-	console.log('inside createSpa ', event.target.parentNode.children);
+	console.log('inside createSpa ');
 	let theInfo = event.target.parentNode.children;
 	const newSpa = {
 		"name": theInfo[0].innerText,
-		"address": theInfo[0].innerText,
-		"id": 1,
+		"address": theInfo[1].innerText,
 	}
 	$.ajax({
 		type: 'POST',
@@ -122,6 +81,38 @@ const createSpa = (event) => {
 	}
 
 })
+
+
+$('.deleteBtn').on('click',function(e)  {
+	debugger
+	e.preventDefault();
+	// const getId = e.target.id;
+	deleteSpa(event);
+})
+
+const deleteSpa = (event)=> {
+	console.log("I am in delete");
+	//pick up the id of the delete buton
+	// send that ID into out req.params.id
+	// '/:id'
+	// make a route that that take that ID
+	// calls destroy with that id
+	// rerender favoriteSpas
+	// let theID = event.target.id;
+	// let button = $('<button>DELETE</button>')
+ //      button.on('click', deletSpa);
+	
+	$.ajax({
+		type: 'DELETE',
+		url: `http://localhost:3000/spa/${theID}`,
+		success: data => {
+			console.log('spa deleted correctly');
+			},
+		error: err => {
+			console.log('error', err)
+				}	
+			})
+		}
 
 // function savedSpas(spa) {
 // 	debugger

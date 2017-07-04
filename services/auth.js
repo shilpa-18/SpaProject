@@ -9,12 +9,26 @@ const bcrypt = require('bcryptjs');
 const passportInstance = passport.initialize();
 const passportSession = passport.session();
 
+// function restrict(req, res, next) {
+//     console.log('req.isauthed() -> ',req.isAuthenticated());
+//     if (req.isAuthenticated()) {
+//         console.log('user authenticated correctly!!')
+//         next();
+//     } else {
+//         console.log('user didnt authenticate correctly');
+//         res.redirect('/user/login');
+//     }
+// }
+
 function restrict(req, res, next) {
-    console.log(req.isAuthenticated());
+    console.log('req.isauthed() -> ', req.isAuthenticated());
     if (req.isAuthenticated()) {
+        console.log('user authenticated correctly!!')
         next();
+    } else if (req.method == 'POST'){
+        res.send('logged out');
     } else {
-        res.redirect('/user/login');
+        res.redirect('/users/login');
     }
 }
 
@@ -45,11 +59,11 @@ passport.use(
             User
                 .create(req.body.user)
                 .then((user) => {
-                    console.log('trying to sign up...')
+                    console.log('user signed up correctly', user)
                     return done(null, user);
                 })
                 .catch((err) => {
-                    console.log('ERROR:', err);
+                    console.log('ERROR signing up user:', err);
                     return done(null, false);
                 });
         })
@@ -66,10 +80,10 @@ passport.use(
             User
                 .findByEmail(email)
                 .then((user) => {
-                    console.log('the user  id->',user.id);
+                    console.log('the user  id after findByEmail->',user.id);
                     if (user) {
                         const isAuthed = bcrypt.compareSync(password, user.password_digest);
-                        console.log('is Authed:');
+                        console.log('passwords match bcrypt:');
                         console.log(isAuthed)
                         if (isAuthed) {
                             return done(null, user);
