@@ -1,0 +1,72 @@
+*{
+  font-family: sans-serif;
+  color: darkslateblue;
+  font-family: 'Quicksand', sans-serif;
+}
+body,html{
+  margin: 0 auto;
+  background-color: cornflowerblue;
+  text-align: center;
+}
+
+input, button{
+  font-size: 1em;
+  padding: 7px;
+  margin: 0 0 0 10px;
+  border: 1px solid darkslateblue;
+  border-radius: 5px;
+}
+
+h1{
+  color: blue;
+  font-size: 4em;
+  font-weight: light;
+}
+
+.container{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: ghostwhite;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  min-height: 90px;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(0,0,0,.3);
+}
+
+.individual-container{
+  max-height: 400px;
+  border: 1px solid red;
+  border-radius: 3px;
+}
+
+.search-container{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+
+
+button{
+  background-color: aliceblue;
+}
+button:hover{
+  background-color: gold;
+}
