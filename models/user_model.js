@@ -3,7 +3,6 @@ const bcrypt = require('bcryptjs');
 const db = require('../db/setup');
 
 function create (user) {
-	console.log('I am in your model function')
 	const password = bcrypt.hashSync(user.password,10);
 	return db.one(`
 	INSERT INTO users

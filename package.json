@@ -22,6 +22,7 @@
   },
   "devDependencies": {},
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
   },
   "repository": {
@@ -29,5 +30,8 @@
     "url": "git@git.generalassemb.ly:shilpa/project-2.git"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+    "engines": {
+    "node": "6.9.5"
+  },
 }

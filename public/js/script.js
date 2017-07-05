@@ -83,9 +83,13 @@ const createSpa = (event) => {
 })
 
 
+
+
 $('.deleteBtn').on('click', function(e) {
 	e.preventDefault();
+	console.log('delete button clicked')
 	const spa_Id = e.target.parentNode.id;
+	console.log(spa_id);
 	deleteSpa(getId);
 
 	const deleteSpa = (getId) => {
