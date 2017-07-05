@@ -60,7 +60,7 @@ router.delete('/:id/', (req, res) => {
 	spa
 	.destroy(req.params.id)
 	.then((data) => {
-		res.send(data)
+		res.json(data)
 	})
 	.catch(err => {
 		console.log(err);

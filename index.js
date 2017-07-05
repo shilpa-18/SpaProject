@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const userController = require('./controllers/user_controller');
 const spaController = require('./controllers/spa_controller');
 const session = require('express-session');
-const cookieParser = require('cookie-Parser');
+const cookieParser = require('cookie-parser');
 const mustacheExpress = require('mustache-express')
 const cors = require('cors');
 
