@@ -15,17 +15,11 @@ const create = (name, address)=> {
 	[name, address]);	
 }
 
-// const update = (spa, id) => {
-// 	return db.oneOrNone(`UPDATE spa 
-// 	SET name = $1, address = $2)
-// 	WHERE id = $3 AND RETURNING id`,
-// 	[spa.name, spa.id, spa.lat, spa.long, spa.icon, spa.user_id]);
-// }
 
-const destroy = (spaId) => {
-	return db.none(`DELETE FROM spa WHERE id = $1`,
-	[spaId]);
+const destroy = (spa_id) => {
+	return db.oneOrnone(`DELETE FROM spa WHERE spa_id = $1`,
+	[spa_id]);
 }
 
 
-module.exports = { findAllByUser, findById, create, destroy};
+module.exports = { findAllByUser, findById, create, destroy };

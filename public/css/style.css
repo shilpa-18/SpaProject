@@ -1,9 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Questrial');
+
 *{
   font-family: sans-serif;
-  color: darkslateblue;
+  color: black;
   font-family: 'Quicksand', sans-serif;
 }
-body,html{
+
+body{
+  background-image: url("Spa-Image.jpg");
+  background-repeat: repeat;
+  background-size: cover;
   margin: 0 auto;
   background-color: cornflowerblue;
   text-align: center;
@@ -18,7 +24,7 @@ input, button{
 }
 
 h1{
-  color: blue;
+  color: black;
   font-size: 4em;
   font-weight: light;
 }
@@ -67,6 +73,7 @@ h1{
 button{
   background-color: aliceblue;
 }
+
 button:hover{
   background-color: gold;
 }

@@ -83,52 +83,25 @@ const createSpa = (event) => {
 })
 
 
-$('.deleteBtn').on('click',function(e)  {
-	debugger
+$('.deleteBtn').on('click', function(e) {
 	e.preventDefault();
-	// const getId = e.target.id;
-	deleteSpa(event);
-})
+	const spa_Id = e.target.parentNode.id;
+	deleteSpa(getId);
 
-const deleteSpa = (event)=> {
-	console.log("I am in delete");
-	//pick up the id of the delete buton
-	// send that ID into out req.params.id
-	// '/:id'
-	// make a route that that take that ID
-	// calls destroy with that id
-	// rerender favoriteSpas
-	// let theID = event.target.id;
-	// let button = $('<button>DELETE</button>')
- //      button.on('click', deletSpa);
+	const deleteSpa = (getId) => {
 	
 	$.ajax({
 		type: 'DELETE',
 		url: `http://localhost:3000/spa/${theID}`,
-		success: data => {
+		success: favoriteSpas => {
 			console.log('spa deleted correctly');
+			window.location.reload();
 			},
 		error: err => {
 			console.log('error', err)
 				}	
-			})
+			});
 		}
 
-// function savedSpas(spa) {
-// 	debugger
-// 	return(e) => {
-// 		$.ajax({
-// 		url: `http://localhost:3000/users/login`,
-// 		method: 'POST',
-// 		data: { spas },		
-// 		success: data => {
-// 			window.location.replace('/spa/spa')
-// 			// myData.data = data;
-// 		},
-// 		error: err => {
-// 			console.log('error', err)	
-// 			}
-// 		})
-// 	}	
-// }
+})
 

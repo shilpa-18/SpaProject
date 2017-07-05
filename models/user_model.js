@@ -24,12 +24,4 @@ function findByEmail (email) {
   );
 };
 
-// function incrementUserCounter(userData) {
-//     const incrementCounterPromise = db.one(
-//         "UPDATE users SET counter = counter + 1 WHERE email = ${email} RETURNING counter",
-//         userData
-//     );
-//     return incrementCounterPromise;
-// }
-
 module.exports = {create, findByEmail};

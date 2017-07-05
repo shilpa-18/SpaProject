@@ -11,7 +11,8 @@ router.get('/favorites',(req,res)=> {
 	// pick up some data all the favs by user
 	// render that on favoriteSpas.html view
 	console.log('inside find all favorites route')
-	spa.findAllByUser()
+	spa
+		.findAllByUser()
 		.then(favoriteSpas => {
 			// console.log(favoriteSpas);
 			res.render('spa/favoriteSpas', {favoriteSpas})
@@ -55,16 +56,17 @@ router.get('/', (req, res) => {
 })
 
 
-router.delete('spa/:id/', (req, res) => {
+router.delete('/:id/', (req, res) => {
 	spa
 	.destroy(req.params.id)
 	.then((data) => {
-		res.json(data);
+		res.send(data)
 	})
 	.catch(err => {
 		console.log(err);
-	});
+	})
 })
+
 
 
 module.exports = router;

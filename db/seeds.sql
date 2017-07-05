@@ -10,5 +10,6 @@ CREATE TABLE users (
 CREATE TABLE spa (
 	id SERIAL PRIMARY KEY,
 	name VARCHAR NOT NULL,
-	address VARCHAR NOT NULL 
+	address VARCHAR NOT NULL,
+	spa_id VARCHAR
 );
