@@ -34,7 +34,7 @@ app.use(auth.passportSession);
 app.use('/user', userController);
 app.use('/spa', spaController);
 
-app.listen(PORT, () => console.log('Server with CORS listening on port', PORT));
+app.listen(PORT, () => console.log('Server listening on port', PORT));
 
 app.get('/', (req,res) =>{
 	res.render('user/login');

@@ -80,12 +80,13 @@ const createSpa = (event) => {
 		})
 	}
 
-})
+
 
 
 
 
 $('.deleteBtn').on('click', function(e) {
+	console.log("hi");
 	e.preventDefault();
 	console.log('delete button clicked')
 	const spa_Id = e.target.parentNode.id;
@@ -107,5 +108,6 @@ $('.deleteBtn').on('click', function(e) {
 			});
 		}
 
+	})
 })
 
