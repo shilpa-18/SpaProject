@@ -15,7 +15,7 @@ const callAPI = (lat, long) => {
 	console.log('inside call api with values ', lat, long);
 	const myData = {};
 	$.ajax({
-		url: `http://localhost:3000/spa/search`,
+		url: 'http://localhost:3000/spa/search',
 		// url: `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670,151.1957&radius=500&types=food&name=cruise&key=AIzaSyBjBE7uURX_dTn-izB4RVxGwbsO-99ii54`,
 		type: 'POST',
 		data: {
@@ -82,22 +82,20 @@ const createSpa = (event) => {
 
 
 
-
-
-
 $('.deleteBtn').on('click', function(e) {
 	console.log("hi");
 	e.preventDefault();
 	console.log('delete button clicked')
-	const spa_Id = e.target.parentNode.id;
-	console.log(spa_id);
-	deleteSpa(getId);
 
-	const deleteSpa = (getId) => {
+	const spaId = e.target.id;
+	console.log(spaId);
+	deleteSpa(spaId);
+
+	const deleteSpa = (spaId) => {
 	
 	$.ajax({
 		type: 'DELETE',
-		url: `http://localhost:3000/spa/${theID}`,
+		url: `/spa/${spaId}`,
 		success: favoriteSpas => {
 			console.log('spa deleted correctly');
 			window.location.reload();
