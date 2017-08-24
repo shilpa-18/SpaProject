@@ -15,7 +15,8 @@ const callAPI = (lat, long) => {
 	console.log('inside call api with values ', lat, long);
 	const myData = {};
 	$.ajax({
-		url: 'https://localhost:3000/spa/search',
+		url : "https://beautiful-rocky-mountain-70729.herokuapp.com/spa/search",
+		// url: 'http://localhost:3000/spa/search',
 		// url: `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670,151.1957&radius=500&types=food&name=cruise&key=AIzaSyBjBE7uURX_dTn-izB4RVxGwbsO-99ii54`,
 		type: 'POST',
 		data: {
